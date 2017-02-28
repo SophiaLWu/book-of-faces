@@ -2,6 +2,10 @@
 	<ul>
 		<li><%= link_to "Home", root_path %></li>
 		<% if signed_in? %>
+			<li><%= link_to "Profile", "#" %></li>
+			<li><%= link_to "Friend Requests", "#" %></li>
+			<li><%= link_to "Notifications", "#" %></li>
+			<li><%= link_to "Settings", "#" %></li>
 			<li><%= link_to "Sign out", destroy_user_session_path, 
 																	method: :delete %></li>	
 		<% else %>
