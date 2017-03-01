@@ -1,0 +1,18 @@
+<h1>Friend Requests</h1>
+
+<div>
+	<% @pending_friend_requests.each do |friend_request| %>
+		<b><%= friend_request.friender.name %></b>
+		<%= form_for friend_request do |f| %>
+			<%= f.submit "Accept", :name => 'accepted' %>
+			<%= f.submit "Decline" %>
+		<% end %>
+	<% end %>
+</div>
+
+<div>
+	<% @requested_friend_requests.each do |friend_request|%>
+		<b><%= friend_request.friended.name %></b>
+		Pending
+	<% end %>
+</div>
