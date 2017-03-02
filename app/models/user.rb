@@ -17,7 +17,8 @@ class User < ApplicationRecord
   has_many :pending_friends,        through:     :pending_friendships, 
   														      source:      :friender,
   														      dependent:   :destroy
-
+  has_many :posts
+  
   # Returns an array of all friend requests initiated by user
   def requested_friend_requests(user)
   	user.requested_friendships.where(accepted: false)
