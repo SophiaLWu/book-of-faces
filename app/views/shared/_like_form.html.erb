@@ -1,0 +1,13 @@
+<% if @post.liked_by(current_user) %>
+	<%= form_for(:like, url: like_path, :method => "delete") do |f| %>
+		<%= f.hidden_field :post_id, :value => @post.id %>
+
+		<%= f.submit "Unlike" %>
+	<% end %>
+<% else %>
+	<%= form_for(:like, url: likes_path, :method => "post") do |f| %>
+		<%= f.hidden_field :post_id, :value => @post.id %>
+
+		<%= f.submit "Like" %>
+	<% end %>
+<% end %>

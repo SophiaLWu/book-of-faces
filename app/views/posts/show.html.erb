@@ -6,6 +6,9 @@
 	</p>
 </div>
 
+<%= render "shared/like_form" %>
+<%= render "shared/comment_form" %>
+
 <p>
 	Likes: <%= @post.likes.count %>
 	<ul>
@@ -27,4 +30,3 @@
 	</ul>
 </p>
 
-<%= render "shared/comment_form" %>
