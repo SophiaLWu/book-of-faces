@@ -1,6 +1,6 @@
-<%= form_for(:comment, url: comments_path, :method => "post") do |f| %>
+<%= form_for(:comment, url: post_comments_path(post_id: post.id), :method => "post") do |f| %>
 	<%= f.text_area :content %>
-	<%= f.hidden_field :post_id, :value => @post.id %>
+	<%= f.hidden_field :post_id, :value => post.id %>
 
 	<%= f.submit "Submit comment" %>
 <% end %>
