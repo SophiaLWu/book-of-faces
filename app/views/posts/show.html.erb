@@ -1,0 +1,26 @@
+<p><%= @post.content %></p>
+
+<p>
+	Author: <%= @post.user.name %>
+</p>
+
+<p>
+	Likes: <%= @post.likes.count %>
+	<ul>
+	<% @post.likes.each do |like| %>
+		<li><%= like.user.name %></li>
+	<% end %>
+	</ul>
+</p>
+
+<p>
+	Comments:
+	<ul>
+		<% @post.comments.each do |comment| %>
+			<li>
+				<p><%= comment.content %></p>
+				<p>Author: <%= comment.user.name %></p>
+			</li>
+		<% end %>
+	</ul>
+</p>

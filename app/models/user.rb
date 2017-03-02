@@ -18,6 +18,8 @@ class User < ApplicationRecord
   														      source:      :friender,
   														      dependent:   :destroy
   has_many :posts
+  has_many :likes,    :inverse_of => :user, dependent: :destroy
+  has_many :comments, :inverse_of => :user, dependent: :destroy
   
   # Returns an array of all friend requests initiated by user
   def requested_friend_requests(user)
