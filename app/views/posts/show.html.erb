@@ -1,8 +1,10 @@
-<p><%= @post.content %></p>
+<div>
+	<h3><%= @post.content %></h3>
 
-<p>
-	Author: <%= @post.user.name %>
-</p>
+	<p>
+		Author: <%= @post.user.name %>
+	</p>
+</div>
 
 <p>
 	Likes: <%= @post.likes.count %>
@@ -24,3 +26,5 @@
 		<% end %>
 	</ul>
 </p>
+
+<%= render "shared/comment_form" %>

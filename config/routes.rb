@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :friendships, only: [:create, :update, :destroy]
   resources :posts
+  resources :comments, only: [:new, :create, :destroy]
 end
