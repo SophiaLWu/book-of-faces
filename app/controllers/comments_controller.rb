@@ -7,11 +7,10 @@ class CommentsController < ApplicationController
 		@comment = current_user.comments.build(comment_params)
 		if @comment.save
 			flash[:success] = "Comment successfully created."
-			redirect_to root_path
 		else
 			flash[:danger] = "Comment not created."
-			render 'new'
 		end
+		redirect_back(fallback_location: root_path)
 	end
 
 	private
