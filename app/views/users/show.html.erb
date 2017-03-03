@@ -3,18 +3,7 @@
 
 <%= gravatar_for @user %>
 
+
 <% @user.posts.each do |post| %>
-	<h4><%= post.content %></h4>
-	<p>Likes: <%= post.likes.count %></p>
-	Comments: 
-  <ul>
-		<% post.comments.each do |comment| %>
-			<li>
-        <p><%= comment.content %></p>
-        <p>Author: <%= comment.user.name %></p>
-      </li>
-		<% end %>
-	</ul>
-  <%= render "shared/like_form", post: post %>
-  <%= render "shared/comment_form", post: post %>
+	<%= render "shared/post", post: post %>
 <% end %>

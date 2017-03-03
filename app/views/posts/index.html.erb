@@ -1,33 +1,3 @@
 <% @posts.each do |post| %>
-	<div>
-		<h3><%= post.content %></h3>
-
-		<p>
-			Author: <%= post.user.name %>
-		</p>
-	</div>
-
-	<%= render "shared/like_form", post: post %>
-	<%= render "shared/comment_form", post: post %>
-
-	<p>
-		Likes: <%= post.likes.count %>
-		<ul>
-		<% post.likes.each do |like| %>
-			<li><%= like.user.name %></li>
-		<% end %>
-		</ul>
-	</p>
-
-	<p>
-		Comments:
-		<ul>
-			<% post.comments.each do |comment| %>
-				<li>
-					<p><%= comment.content %></p>
-					<p>Author: <%= comment.user.name %></p>
-				</li>
-			<% end %>
-		</ul>
-	</p>
+	<%= render "shared/post", post: post %>
 <% end %>
