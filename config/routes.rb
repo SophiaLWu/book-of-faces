@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  authenticated :user do
+    root 'posts#index'
+  end
   root 'static_pages#home'
   get 'static_pages/home'
   get '/friend_requests', to: 'users#friend_requests'
