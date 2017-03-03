@@ -6,10 +6,15 @@
 <% @user.posts.each do |post| %>
 	<h4><%= post.content %></h4>
 	<p>Likes: <%= post.likes.count %></p>
-	<p>Comments: 
+	Comments: 
+  <ul>
 		<% post.comments.each do |comment| %>
-			<%= comment.content %>
-			<%= comment.user %>
+			<li>
+        <p><%= comment.content %></p>
+        <p>Author: <%= comment.user.name %></p>
+      </li>
 		<% end %>
-	</p>
+	</ul>
+  <%= render "shared/like_form", post: post %>
+  <%= render "shared/comment_form", post: post %>
 <% end %>
