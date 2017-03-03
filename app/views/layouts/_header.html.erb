@@ -2,7 +2,7 @@
 	<ul>
 		<li><%= link_to "Home", root_path %></li>
 		<% if user_signed_in? %>
-			<li><%= link_to "Profile", "#" %></li>
+			<li><%= link_to "Profile", current_user %></li>
 			<li><%= link_to "Friend Requests", friend_requests_path %></li>
 			<li><%= link_to "Notifications", notifications_path %></li>
 			<li><%= link_to "Settings", "#" %></li>

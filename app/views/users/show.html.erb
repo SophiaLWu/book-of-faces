@@ -1,0 +1,15 @@
+<h1><%= @user.name %></h1>
+<h3><%= @user.email %></h3>
+
+<%= gravatar_for @user %>
+
+<% @user.posts.each do |post| %>
+	<h4><%= post.content %></h4>
+	<p>Likes: <%= post.likes.count %></p>
+	<p>Comments: 
+		<% post.comments.each do |comment| %>
+			<%= comment.content %>
+			<%= comment.user %>
+		<% end %>
+	</p>
+<% end %>
