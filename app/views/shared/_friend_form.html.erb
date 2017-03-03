@@ -1,0 +1,8 @@
+<li>
+  <b><%= friend_request.friender.name %></b>
+
+  <%= form_for friend_request do |f| %>
+    <%= f.submit "Accept", :name => 'accepted' %>
+    <%= f.submit "Decline" %>
+  <% end %>
+</li>

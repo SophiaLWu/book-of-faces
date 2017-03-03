@@ -56,4 +56,9 @@ class User < ApplicationRecord
     end
   end
 
+  # Returns array of all users that self has not friended or been friended by
+  def not_friended_users
+    User.all.select { |user| user != self && find_friendship(user).nil? }
+  end
+
 end

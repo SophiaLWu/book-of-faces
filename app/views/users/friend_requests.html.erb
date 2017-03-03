@@ -1,18 +1,16 @@
 <h1>Friend Requests</h1>
 
-<div>
+<ul>
 	<% @pending_friend_requests.each do |friend_request| %>
-		<b><%= friend_request.friender.name %></b>
-		<%= form_for friend_request do |f| %>
-			<%= f.submit "Accept", :name => 'accepted' %>
-			<%= f.submit "Decline" %>
-		<% end %>
+		<%= render "shared/friend_form", friend_request: friend_request %>
 	<% end %>
-</div>
+</ul>
 
-<div>
+<ul>
 	<% @requested_friend_requests.each do |friend_request|%>
-		<b><%= friend_request.friended.name %></b>
-		Pending
+		<li>
+      <b><%= friend_request.friended.name %></b>
+		  Pending
+    </li>
 	<% end %>
-</div>
+</ul>

@@ -1,5 +1,13 @@
 class FriendshipsController < ApplicationController
+
   def create
+    friendship = current_user.requested_friendships.build(friendship_params)
+    if friendship.save
+      flash[:success] = "Sent friend request."
+    else
+      flash[:danger] = "Error. Friend request not sent."
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   def update
@@ -21,4 +29,11 @@ class FriendshipsController < ApplicationController
   	flash[:success] = "User unfriended."
   	redirect_to root_path
   end
+
+  private
+
+    def friendship_params
+      params.permit(:friended_id)
+    end
+
 end

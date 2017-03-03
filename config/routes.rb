@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/notifications', to: 'static_pages#notifications'
 
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
   resources :friendships, only: [:create, :update, :destroy]
   resources :posts do
 	  resources :comments, only: [:new, :create, :destroy]

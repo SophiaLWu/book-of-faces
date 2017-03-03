@@ -1,0 +1,13 @@
+<h1>All Users</h1>
+
+<table>
+  <% current_user.not_friended_users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td>
+        <%= link_to "Send friend request", 
+            friendships_path(friended_id: user.id), method: :post %>
+      </td>
+    </tr>
+  <% end %>
+</table>
