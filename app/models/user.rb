@@ -31,11 +31,29 @@ class User < ApplicationRecord
   	user.pending_friendships.where(accepted: false)
   end
 
+  # Given another friend, returns the friendship between self and that friend
+  def find_friendship(friend)
+    requested_friendships.find_by(friended_id: friend.id) ||
+    pending_friendships.find_by(friender_id: friend.id)
+  end
+
   # Given a friend, unfriends the friend
   def unfriend(friend)
-  	friendship = requested_friendships.find_by(friended_id: friend.id) ||
-  							 pending_friendships.find_by(friender_id: friend.id)
-  	friendship.destroy
+  	find_friendship(friend).destroy
+  end
+
+  # Given a potential friendship, returns true if friend request was accepted
+  def accepted?(friendship)
+    friendship.accepted
+  end
+
+  # Returns true if the user is a friend of self
+  def is_friend(user)
+    if friendship = find_friendship(user)
+      friendship.accepted?
+    else
+      false
+    end
   end
 
 end

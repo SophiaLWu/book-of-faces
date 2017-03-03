@@ -19,7 +19,10 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all
+		@posts = Post.all.select do |post|
+						   post.belongs_to?(current_user) ||
+						   current_user.is_friend(post.user)
+						 end
 	end
 
 	private
