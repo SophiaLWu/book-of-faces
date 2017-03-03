@@ -1,0 +1,13 @@
+<h1>Friends</h1>
+
+<table>
+  <% @friends.each do |friend| %>
+    <tr>
+      <td><%= link_to "#{friend.name}", friend %></td>
+      <td><%= link_to "Delete friend", 
+              friendship_path(current_user.find_friendship(friend)),
+              data: { confirm: "Are you sure?" }, 
+              method: :delete %></td>
+    </tr>
+  <% end %>
+</table>

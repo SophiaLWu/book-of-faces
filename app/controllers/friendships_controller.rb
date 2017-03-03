@@ -1,5 +1,9 @@
 class FriendshipsController < ApplicationController
 
+  def index
+    @friends = current_user.friends
+  end
+
   def create
     friendship = current_user.requested_friendships.build(friendship_params)
     if friendship.save
@@ -21,13 +25,13 @@ class FriendshipsController < ApplicationController
 	  	flash[:notice] = "You have declined #{potential_friend.name}'s "\
 	  									 "friend request."
 	  end
-	  redirect_to friend_requests_path
+	  redirect_back(fallback_location: root_path)
   end
 
   def destroy
   	Friendship.find(params[:id]).destroy
   	flash[:success] = "User unfriended."
-  	redirect_to root_path
+  	redirect_back(fallback_location: root_path)
   end
 
   private

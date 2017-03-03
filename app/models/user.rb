@@ -61,4 +61,15 @@ class User < ApplicationRecord
     User.all.select { |user| user != self && find_friendship(user).nil? }
   end
 
+  # Returns an array of all friends
+  def friends
+    User.all.select { |user| is_friend(user) }
+  end
+
+  # Returns true if self friended the friend 
+  # and false if friend friended self
+  def friended(friend)
+    requested_friendships.include? find_friendship(friend)
+  end
+
 end
