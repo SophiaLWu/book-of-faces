@@ -7,11 +7,11 @@ class PostsController < ApplicationController
 		post = current_user.posts.build(post_params)
 		if post.save
 			flash[:success] = "Post successfully created."
-			redirect_to root_path
 		else
 			flash[:danger] = "Post not created."
-			render 'new'
 		end
+
+		redirect_back(fallback_location: root_path)
 	end
 
 	def show

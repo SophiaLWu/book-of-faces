@@ -1,4 +1,5 @@
-<%= form_for(:comment, url: post_comments_path(post_id: post.id), :method => "post") do |f| %>
+<%= form_for(:comment, url: post_comments_path(post_id: post.id), 
+             :method => "post") do |f| %>
 	<%= f.text_area :content %>
 	<%= f.hidden_field :post_id, :value => post.id %>
 

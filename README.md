@@ -16,8 +16,6 @@ Email: charlie@peanuts.com
 Password: peanuts
 
 ## TODO
-- Timestamps for posts and comments / sorted by timestamp
-- Allows users to write new posts
 - Notification tab functionality
 - Users can't see other users' profiles unless they are friends
 - Validations for being signed in to see certain pages

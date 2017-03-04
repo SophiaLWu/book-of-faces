@@ -3,6 +3,9 @@
 
 <%= gravatar_for @user %>
 
+<% if current_user == @user %>
+  <%= render "shared/post_form" %>
+<% end %>
 
 <% @user.posts.each do |post| %>
 	<%= render "shared/post", post: post %>

@@ -1,0 +1,7 @@
+<h2>Write a new post</h2>
+
+<%= form_for(:post, url: posts_path, :method => "post") do |f| %>
+  <%= f.text_area :content %>
+
+  <%= f.submit "Submit post" %>
+<% end %>
