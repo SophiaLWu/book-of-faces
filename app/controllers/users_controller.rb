@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
     def require_friend
       @user = User.find(params[:id])
-      unless current_user.is_friend?(@user)
+      unless current_user == @user || current_user.is_friend?(@user)
         flash[:error] = "You must be friends with #{@user.name} "\
                         "to view his/her profile."
         redirect_to root_path
