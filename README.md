@@ -19,7 +19,6 @@ Password: peanuts
 - Notification tab functionality
 - Add pagination for friend requests
 - User can't friend someone that already friend him/her (fix uniqueness of friendship model)
-- Allow posts to have images
 - Use Paperclip gem to allow users to upload a photo to their profile
 - Use polymorphic association to make post allow either text OR photo
 - Styling

@@ -1,12 +1,13 @@
 class Post < ApplicationRecord
-	validates :content, presence: true, length: { maximum: 500 }
-	validates :user_id, presence: true
-
 	belongs_to :user
 	has_many :likes,    :inverse_of => :post, dependent: :destroy
 	has_many :comments, :inverse_of => :post, dependent: :destroy
-
+	
 	default_scope -> { order(created_at: :desc) }
+	mount_uploader :picture, PictureUploader
+	validates :content, presence: true, length: { maximum: 500 }
+	validates :user_id, presence: true
+	validate  :picture_size
 
 	# Returns true if a post is liked by the given user and false otherwise
 	def liked_by?(user)
@@ -22,5 +23,14 @@ class Post < ApplicationRecord
 	def belongs_to?(user)
 		user_id == user.id
 	end
+
+	private
+
+		# Validates the size of an uploaded picture
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
+    end
 
 end

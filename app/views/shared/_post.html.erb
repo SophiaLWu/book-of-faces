@@ -6,6 +6,7 @@
   
   <p>Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
   <h4><%= post.content %></h4>
+  <p><%= image_tag post.picture.url if post.picture? %></p>
 </div>
 
 <%= render "shared/like_form", post: post %>

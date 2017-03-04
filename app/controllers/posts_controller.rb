@@ -2,8 +2,8 @@ class PostsController < ApplicationController
 	before_action :logged_in_user
 
 	def create
-		post = current_user.posts.build(post_params)
-		if post.save
+		@post = current_user.posts.build(post_params)
+		if @post.save
 			flash[:success] = "Post successfully created."
 		else
 			flash[:danger] = "Post not created."
@@ -22,10 +22,11 @@ class PostsController < ApplicationController
 						   current_user.is_friend?(post.user)
 						 end
 		@posts = all_posts.paginate(page: params[:page], per_page: 10)
+		@post = current_user.posts.build
 	end
 
 	private
 		def post_params
-			params.require(:post).permit(:content)
+			params.require(:post).permit(:content, :picture)
 		end
 end
