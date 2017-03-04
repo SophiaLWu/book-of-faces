@@ -1,5 +1,9 @@
 <div>
-  <h3><%= post.user.name %></h3>
+  <h3>
+    <%= gravatar_for post.user %> 
+    <%= post.user.name %>
+  </h3>
+  
   <p>Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
   <h4><%= post.content %></h4>
 </div>
@@ -21,7 +25,11 @@
     <% post.comments.each do |comment| %>
       <li>
         <p><%= comment.content %></p>
-        <p>Author: <%= comment.user.name %></p>
+        <p>
+          Author: 
+          <%= gravatar_for comment.user %> 
+          <%= comment.user.name %>
+        </p>
       </li>
     <% end %>
   </ul>
