@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.all.select do |post|
 						   post.belongs_to?(current_user) ||
-						   current_user.is_friend(post.user)
+						   current_user.is_friend?(post.user)
 						 end
 	end
 

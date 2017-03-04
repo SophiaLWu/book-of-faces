@@ -70,7 +70,7 @@ class User < ApplicationRecord
   end
 
   # Returns true if the user is a friend of self
-  def is_friend(user)
+  def is_friend?(user)
     if friendship = find_friendship(user)
       friendship.accepted?
     else
@@ -85,7 +85,7 @@ class User < ApplicationRecord
 
   # Returns an array of all friends
   def friends
-    User.all.select { |user| is_friend(user) }
+    User.all.select { |user| is_friend?(user) }
   end
 
   # Returns true if self friended the friend 
