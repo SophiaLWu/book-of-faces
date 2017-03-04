@@ -8,6 +8,7 @@ This is The Odin Project's [Final Ruby on Rails Project](http://www.theodinproje
 See the app live [here](https://frozen-sands-98166.herokuapp.com/).
 
 You can create your own account or sign in with one of the following sample accounts:
+
 Email: snoopy@peanuts.com
 Password: peanuts
 
@@ -15,7 +16,9 @@ Email: charlie@peanuts.com
 Password: peanuts
 
 # TODO
-- Deploy app to Heroku with SendGrid add-on
+- Timestamps for posts and comments / sorted by timestamp
+- Allows users to write new posts
+- Notification tab functionality
 - Users can't see other users' profiles unless they are friends
 - Validations for being signed in to see certain pages
 - User can't friend someone that already friend him/her (fix uniqueness of friendship model)
