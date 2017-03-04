@@ -6,6 +6,8 @@ class Post < ApplicationRecord
 	has_many :likes,    :inverse_of => :post, dependent: :destroy
 	has_many :comments, :inverse_of => :post, dependent: :destroy
 
+	default_scope -> { order(created_at: :desc) }
+
 	# Returns true if a post is liked by the given user and false otherwise
 	def liked_by?(user)
 		likes.where(user_id: user.id).exists?

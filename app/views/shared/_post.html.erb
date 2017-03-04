@@ -1,13 +1,10 @@
 <div>
-  <h3><%= post.content %></h3>
-
-  <p>
-    Author: <%= post.user.name %>
-  </p>
+  <h3><%= post.user.name %></h3>
+  <p>Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
+  <h4><%= post.content %></h4>
 </div>
 
 <%= render "shared/like_form", post: post %>
-<%= render "shared/comment_form", post: post %>
 
 <p>
   Likes: <%= post.likes.count %>
@@ -29,3 +26,5 @@
     <% end %>
   </ul>
 </p>
+
+<%= render "shared/comment_form", post: post %>

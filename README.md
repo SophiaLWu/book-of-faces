@@ -4,7 +4,7 @@ Book of Faces is a social network web app based off of the widely used social ne
 
 This is The Odin Project's [Final Ruby on Rails Project](http://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
 
-# Live App
+## Live App
 See the app live [here](https://frozen-sands-98166.herokuapp.com/).
 
 You can create your own account or sign in with one of the following sample accounts:
@@ -15,7 +15,7 @@ Password: peanuts
 Email: charlie@peanuts.com
 Password: peanuts
 
-# TODO
+## TODO
 - Timestamps for posts and comments / sorted by timestamp
 - Allows users to write new posts
 - Notification tab functionality
