@@ -1,6 +1,6 @@
 <div>
   <h3>
-    <%= gravatar_for post.user %> 
+    <%= image_tag post.user.avatar.url(:thumb) %>
     <%= post.user.name %>
   </h3>
   
@@ -28,7 +28,7 @@
         <p><%= comment.content %></p>
         <p>
           Author: 
-          <%= gravatar_for comment.user %> 
+          <%= image_tag comment.user.avatar.url(:thumb) %>
           <%= comment.user.name %>
         </p>
       </li>

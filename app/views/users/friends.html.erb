@@ -5,6 +5,7 @@
 <table>
   <% @friends.each do |friend| %>
     <tr>
+      <td><%= image_tag friend.avatar.url(:thumb) %></td>
       <td><%= link_to "#{friend.name}", friend %></td>
       <td><%= link_to "Delete friend", 
               friendship_path(current_user.find_friendship(friend)),

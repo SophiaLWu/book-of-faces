@@ -1,26 +1,30 @@
 class User < ApplicationRecord
+
+  has_many :requested_friendships,  class_name:  "Friendship",
+                                    foreign_key: "friender_id",
+                                    dependent:   :destroy
+  has_many :pending_friendships,    class_name:  "Friendship",
+                                    foreign_key: "friended_id",
+                                    dependent:   :destroy
+  has_many :requested_friends,      through:     :requested_friendships, 
+                                    source:      :friended,
+                                    dependent:   :destroy
+  has_many :pending_friends,        through:     :pending_friendships, 
+                                    source:      :friender,
+                                    dependent:   :destroy
+  has_many :posts
+  has_many :likes,    :inverse_of => :user, dependent: :destroy
+  has_many :comments, :inverse_of => :user, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
   validates :name, presence: true, length: { maximum: 50 }
-
-  has_many :requested_friendships,  class_name:  "Friendship",
-  															    foreign_key: "friender_id",
-  															    dependent:   :destroy
-  has_many :pending_friendships,    class_name:  "Friendship",
-  															    foreign_key: "friended_id",
-  															    dependent:   :destroy
-  has_many :requested_friends,      through:     :requested_friendships, 
-  														      source:      :friended,
-  														      dependent:   :destroy
-  has_many :pending_friends,        through:     :pending_friendships, 
-  														      source:      :friender,
-  														      dependent:   :destroy
-  has_many :posts
-  has_many :likes,    :inverse_of => :user, dependent: :destroy
-  has_many :comments, :inverse_of => :user, dependent: :destroy
+  has_attached_file :avatar, styles: { medium: "300x300#", thumb: "30x30#" },
+                             default_url: "/assets/:style/missing.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
