@@ -5,6 +5,14 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+  def index
+    @users = current_user.not_friended_users
+  end
+
+  def friends
+    @friends = current_user.friends
+  end
+
 	def friend_requests
 		@user = current_user
 		@pending_friend_requests = @user.pending_friend_requests(@user)

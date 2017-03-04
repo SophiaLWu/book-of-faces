@@ -18,7 +18,6 @@ Password: peanuts
 ## TODO
 - Notification tab functionality
 - Add pagination to posts, friends, and users
-- Validations for being signed in to see certain pages
 - User can't friend someone that already friend him/her (fix uniqueness of friendship model)
 - Allow posts to have images
 - Use Paperclip gem to allow users to upload a photo to their profile
