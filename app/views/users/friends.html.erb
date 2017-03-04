@@ -1,5 +1,7 @@
 <h1>Friends</h1>
 
+<%= will_paginate @friends %>
+
 <table>
   <% @friends.each do |friend| %>
     <tr>
@@ -11,3 +13,5 @@
     </tr>
   <% end %>
 </table>
+
+<%= will_paginate @friends %>

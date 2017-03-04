@@ -1,7 +1,9 @@
 <h1>All Users</h1>
 
+<%= will_paginate @users %>
+
 <table>
-  <% current_user.not_friended_users.each do |user| %>
+  <% @users.each do |user| %>
     <tr>
       <td><%= user.name %></td>
       <td>
@@ -11,3 +13,5 @@
     </tr>
   <% end %>
 </table>
+
+<%= will_paginate @users %>

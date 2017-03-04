@@ -7,6 +7,10 @@
   <%= render "shared/post_form" %>
 <% end %>
 
-<% @user.posts.each do |post| %>
+<%= will_paginate @user_posts %>
+
+<% @user_posts.each do |post| %>
 	<%= render "shared/post", post: post %>
 <% end %>
+
+<%= will_paginate @user_posts %>

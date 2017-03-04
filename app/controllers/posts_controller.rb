@@ -17,10 +17,11 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all.select do |post|
+		all_posts = Post.all.select do |post|
 						   post.belongs_to?(current_user) ||
 						   current_user.is_friend?(post.user)
 						 end
+		@posts = all_posts.paginate(page: params[:page], per_page: 10)
 	end
 
 	private

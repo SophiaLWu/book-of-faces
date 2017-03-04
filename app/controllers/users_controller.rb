@@ -3,14 +3,18 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+    @user_posts = (@user.posts).paginate(page: params[:page], 
+                                         per_page: 10)
 	end
 
   def index
-    @users = current_user.not_friended_users
+    @users = (current_user.not_friended_users).paginate(page: params[:page], 
+                                                        per_page: 20)
   end
 
   def friends
-    @friends = current_user.friends
+    @friends = (current_user.friends).paginate(page: params[:page], 
+                                               per_page: 20)
   end
 
 	def friend_requests
