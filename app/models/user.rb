@@ -23,7 +23,7 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook]
   validates :name, presence: true, length: { maximum: 50 }
   has_attached_file :avatar, styles: { medium: "300x300#", thumb: "30x30#" },
-                             default_url: "/assets/:style/missing.jpg"
+                             default_url: "/images/:style/missing.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   
   def self.from_omniauth(auth)
