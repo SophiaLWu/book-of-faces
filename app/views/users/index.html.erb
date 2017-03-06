@@ -2,7 +2,7 @@
 
 <h1>All Users</h1>
 
-<%= will_paginate @users %>
+<div class="pagination"><%= will_paginate @users %></div>
 
 <table>
   <% @users.each do |user| %>
@@ -17,4 +17,4 @@
   <% end %>
 </table>
 
-<%= will_paginate @users %>
+<div class="pagination"><%= will_paginate @users %></div>

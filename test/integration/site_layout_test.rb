@@ -22,8 +22,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout links when signed in" do
     get root_path
     assert_template 'static_pages/home'
-    post user_session_path, params: { user: { email: @user.email, 
-                                              password: "peanuts" }}
+    log_in_as(@user, "peanuts")
     follow_redirect!
     assert_select "a[href=?]", root_path
     assert_select "a[href=?]", users_path

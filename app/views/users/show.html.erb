@@ -17,10 +17,10 @@
 
 <h2>Posts</h2>
 
-<%= will_paginate @user_posts %>
+<div class="pagination"><%= will_paginate @user_posts %></div>
 
 <% @user_posts.each do |post| %>
 	<%= render "shared/post", post: post %>
 <% end %>
 
-<%= will_paginate @user_posts %>
+<div class="pagination"><%= will_paginate @user_posts %></div>

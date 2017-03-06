@@ -9,7 +9,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login with invalid information" do
     get new_user_session_path
     assert_template 'sessions/new'
-    post user_session_path, params: { session: { email: "", password: "" } }
+    log_in_as(@user, "")
     assert_template 'sessions/new'
     assert_select "a[href=?]", new_user_session_path, count: 1
     assert_not flash.empty?
@@ -20,8 +20,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login with valid information" do
     get new_user_session_path
     assert_template 'sessions/new'
-    post user_session_path, params: { user: { email: @user.email, 
-                                              password: "peanuts" }}
+    log_in_as(@user, "peanuts")
     follow_redirect!
     assert_template 'posts/index'
     assert_select "a[href=?]", new_user_session_path, count: 0
