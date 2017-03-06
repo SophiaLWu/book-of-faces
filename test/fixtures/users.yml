@@ -9,3 +9,15 @@ snoopy:
     email: snoopy@peanuts.com
     encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
     confirmed_at: <%= Time.now %>
+
+charlie:
+    name: Charlie
+    email: charlie@peanuts.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
+    confirmed_at: <%= Time.now %>
+
+lucy:
+    name: Lucy van Pelt
+    email: lucy@peanuts.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
+    confirmed_at: <%= Time.now %>

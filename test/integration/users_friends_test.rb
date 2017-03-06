@@ -8,10 +8,10 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
 
   test "index including pagination" do
     log_in_as(@user, "peanuts")
-    get users_path
-    assert_template "users/index"
+    get friends_path
+    assert_template "users/friends"
     assert_select "div.pagination"
-    @user.not_friended_users.paginate(page: 1).each do |user|
+    @user.friends.paginate(page: 1).each do |user|
       assert_select "td.name", user.name
     end
   end
