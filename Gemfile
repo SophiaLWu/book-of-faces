@@ -40,6 +40,7 @@ gem 'mini_magick',             '4.5.1'
 gem 'fog',                     '1.38.0'
 gem 'aws-sdk', '~> 2.3.0'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'bcrypt-ruby'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

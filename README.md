@@ -16,6 +16,7 @@ Email: charlie@peanuts.com
 Password: peanuts
 
 ## TODO
+- Organize comments by date of post
 - Notification tab functionality
 - Add pagination for friend requests
 - User can't friend someone that already friend him/her (fix uniqueness of friendship model)
