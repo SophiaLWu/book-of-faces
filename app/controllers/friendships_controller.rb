@@ -28,7 +28,7 @@ class FriendshipsController < ApplicationController
   def destroy
   	Friendship.find(params[:id]).destroy
   	flash[:success] = "User unfriended."
-  	redirect_back(fallback_location: root_path)
+  	redirect_to friends_path
   end
 
   private

@@ -3,10 +3,14 @@
 
 <%= image_tag @user.avatar.url(:medium) %>
 
-<h2>Write a new post</h2>
-
 <% if current_user == @user %>
+  <h2>Write a new post</h2>
   <%= render "shared/post_form" %>
+<% else %>
+  <td><%= link_to "Unfriend", 
+              friendship_path(current_user.find_friendship(@user)),
+              data: { confirm: "Are you sure?" }, 
+              method: :delete %></td>
 <% end %>
 
 <h2>Posts</h2>
