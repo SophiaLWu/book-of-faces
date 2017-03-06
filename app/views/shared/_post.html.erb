@@ -1,7 +1,7 @@
 <div>
   <h3>
     <%= image_tag post.user.avatar.url(:thumb) %>
-    <%= post.user.name %>
+    <%= link_to "#{post.user.name}", post.user %>
   </h3>
   
   <p>Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
@@ -22,7 +22,7 @@
   Likes: <%= post.likes.count %>
   <ul>
   <% post.likes.each do |like| %>
-    <li><%= like.user.name %></li>
+    <li><%= link_to "#{like.user.name}", like.user %></li>
   <% end %>
   </ul>
 </p>
@@ -36,7 +36,7 @@
         <p>
           Author: 
           <%= image_tag comment.user.avatar.url(:thumb) %>
-          <%= comment.user.name %>
+          <%= link_to "#{comment.user.name}", comment.user %>
         </p>
         <div>
           <% if comment.belongs_to?(current_user) %>

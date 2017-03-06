@@ -17,10 +17,10 @@ Password: peanuts
 
 ## TODO
 - Notification tab functionality
-- Allow users to edit and delete comments
 - Add pagination for friend requests
 - Add links to user profile on posts index page
 - User can't friend someone that already friend him/her (fix uniqueness of friendship model)
 - Use polymorphic association to make post allow either text OR photo
+- After editing comments/posts, redirect back to previous page rather than root
 - Styling
 - Integration tests with Guard
