@@ -7,6 +7,13 @@
   <p>Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
   <h4><%= post.content %></h4>
   <p><%= image_tag post.picture.url if post.picture? %></p>
+  <div>
+    <% if post.belongs_to?(current_user) %>
+      <%= link_to "edit", edit_post_path(post) %>
+      <%= link_to "delete", post, method: :delete, 
+                                  data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
 </div>
 
 <%= render "shared/like_form", post: post %>

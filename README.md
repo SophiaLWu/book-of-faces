@@ -17,9 +17,10 @@ Password: peanuts
 
 ## TODO
 - Notification tab functionality
+- Allow users to edit and delete comments
 - Add pagination for friend requests
+- Add links to user profile on posts index page
 - User can't friend someone that already friend him/her (fix uniqueness of friendship model)
-- Use Paperclip gem to allow users to upload a photo to their profile
 - Use polymorphic association to make post allow either text OR photo
 - Styling
 - Integration tests with Guard
