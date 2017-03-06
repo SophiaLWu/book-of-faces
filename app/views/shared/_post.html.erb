@@ -38,6 +38,15 @@
           <%= image_tag comment.user.avatar.url(:thumb) %>
           <%= comment.user.name %>
         </p>
+        <div>
+          <% if comment.belongs_to?(current_user) %>
+            <%= link_to "edit", edit_post_comment_path(post_id: post.id,
+                                                       id: comment.id) %>
+            <%= link_to "delete", post_comment_path(post_id: post.id,
+                                  id: comment.id), method: :delete, 
+                                        data: { confirm: "Are you sure?" } %>
+          <% end %>
+        </div>
       </li>
     <% end %>
   </ul>
