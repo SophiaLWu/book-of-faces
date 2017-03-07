@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UsersIndexTest < ActionDispatch::IntegrationTest
+class UsersDestroyTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:snoopy)

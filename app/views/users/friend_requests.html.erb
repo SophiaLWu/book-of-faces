@@ -10,10 +10,9 @@
 
 <ul>
 	<% @requested_friend_requests.each do |friend_request|%>
-		<li>
+		<li class="requested_friend_request">
       <%= image_tag friend_request.friended.avatar.url(:thumb) %>
-      <b><%= friend_request.friended.name %></b>
-		  Pending
+      <b><%= friend_request.friended.name %></b> Pending
     </li>
 	<% end %>
 </ul>

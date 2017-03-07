@@ -1,9 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   friended_id: 1
-#   friender_id: 1
+snoopy_charlie:
+  friended: snoopy
+  friender: charlie
+  accepted: true
 
-# two:
-#   friended_id: 1
-#   friender_id: 1
+snoopy_lucy:
+  friended: snoopy
+  friender: lucy
+  accepted: false
+
+woodstock_snoopy:
+  friended: woodstock
+  friender: snoopy
+  accepted: false
+
+schroeder_snoopy:
+  friended: schroeder
+  friender: snoopy
+  accepted: true

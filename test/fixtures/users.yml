@@ -11,7 +11,7 @@ snoopy:
     confirmed_at: <%= Time.now %>
 
 charlie:
-    name: Charlie
+    name: Charlie Brown
     email: charlie@peanuts.com
     encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
     confirmed_at: <%= Time.now %>
@@ -21,3 +21,22 @@ lucy:
     email: lucy@peanuts.com
     encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
     confirmed_at: <%= Time.now %>
+
+woodstock:
+    name: Woodstock
+    email: woodstock@peanuts.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
+    confirmed_at: <%= Time.now %>
+
+schroeder:
+    name: Schroeder
+    email: schroeder@peanuts.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
+    confirmed_at: <%= Time.now %>
+
+pigpen:
+    name: Pig-Pen
+    email: pigpen@peanuts.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
+    confirmed_at: <%= Time.now %>
+

@@ -48,13 +48,13 @@ class User < ApplicationRecord
   end
 
   # Returns an array of all friend requests initiated by user
-  def requested_friend_requests(user)
-  	user.requested_friendships.where(accepted: false)
+  def requested_friend_requests
+  	requested_friendships.where(accepted: false)
   end
 
   # Returns an array of all friend requests for user initiated by another user
-  def pending_friend_requests(user)
-  	user.pending_friendships.where(accepted: false)
+  def pending_friend_requests
+  	pending_friendships.where(accepted: false)
   end
 
   # Given another friend, returns the friendship between self and that friend
