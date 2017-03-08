@@ -1,11 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   title: MyString
-#   body: MyText
-#   user_id: 1
+one:
+  content: Good Grief!
+  user: charlie
 
-# two:
-#   title: MyString
-#   body: MyText
-#   user_id: 1
+two:
+  content: I am the red baron
+  user: snoopy
+
+three:
+  content: I love the piano :)
+  user: schroeder
+
+four:
+  content: I'm a bird!
+  user: woodstock
+
+five:
+  content: Good grief, again!
+  user: charlie
+

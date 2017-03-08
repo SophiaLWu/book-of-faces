@@ -24,6 +24,14 @@ class Post < ApplicationRecord
 		user_id == user.id
 	end
 
+	# Returns an array of all posts that would appear on the given user's
+	# news feed (including user and friends' posts)
+	def self.news_feed_posts(user)
+		Post.all.select do |post|
+	    post.belongs_to?(user) || user.is_friend?(post.user)
+	  end
+	end
+
 	private
 
 		# Validates the size of an uploaded picture
