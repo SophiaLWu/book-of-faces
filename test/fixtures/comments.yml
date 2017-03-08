@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   content: MyText
-#   post_id: 1
-#   user_id: 1
+one:
+  content: Sorry to hear that Charlie
+  post: one
+  user: snoopy
 
-# two:
-#   content: MyText
-#   post_id: 1
-#   user_id: 1
+two:
+  content: Where's your plane?
+  post: two
+  user: charlie
+
+three:
+  content: Haha!
+  post: two
+  user: schroeder

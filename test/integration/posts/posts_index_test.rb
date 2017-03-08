@@ -16,6 +16,7 @@ class PostsIndexTest < ActionDispatch::IntegrationTest
     posts.paginate(page: 1).each do |post|
       assert_match post.content, response.body
     end
+    get user_path(@user)
     assert_no_match @unincluded_post.content, response.body
   end
 end
