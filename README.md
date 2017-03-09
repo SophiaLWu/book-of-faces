@@ -23,4 +23,5 @@ Password: peanuts
 - Use polymorphic association to make post allow either text OR photo
 - After editing comments/posts, redirect back to previous page rather than root
 - Styling
-- Integration tests with Guard
+- Unit tests to make sure associations are set up and deleting users deletes
+ everything associated with that user

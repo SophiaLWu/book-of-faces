@@ -1,26 +1,30 @@
 <% provide(:title, "#{@user.name}'s profile") %>
 
-<h1><%= @user.name %></h1>
-<h3><%= @user.email %></h3>
+<div class="profile-info">
+  <h1><%= @user.name %></h1>
+  <h3><%= @user.email %></h3>
+  <%= image_tag @user.avatar.url(:medium) %>
+  <% if current_user != @user %>
+    <td><%= link_to "Unfriend", 
+                  friendship_path(current_user.find_friendship(@user)),
+                  data: { confirm: "Are you sure?" }, 
+                  method: :delete %></td>
+  <% end %>
+</div>
 
-<%= image_tag @user.avatar.url(:medium) %>
+<div class="profile-posts">
+  <% if current_user == @user %>
+    <h2>Write a new post</h2>
+    <%= render "shared/post_form" %>
+  <% end %>
 
-<% if current_user == @user %>
-  <h2>Write a new post</h2>
-  <%= render "shared/post_form" %>
-<% else %>
-  <td><%= link_to "Unfriend", 
-              friendship_path(current_user.find_friendship(@user)),
-              data: { confirm: "Are you sure?" }, 
-              method: :delete %></td>
-<% end %>
+  <h2>Posts</h2>
 
-<h2>Posts</h2>
+  <div class="pagination"><%= will_paginate @user_posts %></div>
 
-<div class="pagination"><%= will_paginate @user_posts %></div>
+  <% @user_posts.each do |post| %>
+  	<%= render "shared/post", post: post %>
+  <% end %>
 
-<% @user_posts.each do |post| %>
-	<%= render "shared/post", post: post %>
-<% end %>
-
-<div class="pagination"><%= will_paginate @user_posts %></div>
+  <div class="pagination"><%= will_paginate @user_posts %></div>
+</div>

@@ -1,0 +1,88 @@
+/* VARIABLES, MIXINS, ETC. */
+
+* {
+  margin:0;
+  padding:0;
+}
+:root {
+  --header-height: 40px;
+}
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+
+/* HEADER */
+
+nav {
+  background: tan;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  @include box_sizing;
+
+  ul {
+    float: right;
+    margin: 0 10px;
+
+    li {
+      display: block;
+      float: left;
+      line-height: var(--header-height);
+      padding: 0px 5px;
+      text-align: center;
+    }
+  }
+}
+
+
+/* CONTENT LAYOUT */
+
+
+#content-container {
+  margin: 10px;
+  padding-top: var(--header-height);
+  @include box_sizing;
+}
+
+
+/* FONT, COLOR */
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+h2 {
+  font-size: 30px;
+  padding: 10px 0px;
+}
+
+h3 {
+  font-size: 20px;
+  padding: 5px 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* TABLES */
+table {
+  border-collapse: separate;
+
+  td {
+    padding: 5px 10px;
+    vertical-align: middle;
+  }
+}
