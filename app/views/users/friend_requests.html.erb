@@ -2,18 +2,17 @@
 
 <h1>Friend Requests</h1>
 
-<ul>
+<table>
 	<% @pending_friend_requests.each do |friend_request| %>
-		<%= render "shared/friend_form", friend_request: friend_request %>
+	  <%= render "shared/friend_form", friend_request: friend_request %>
 	<% end %>
-</ul>
 
-<ul>
 	<% @requested_friend_requests.each do |friend_request|%>
-		<li class="requested_friend_request">
-      <%= image_tag friend_request.friended.avatar.url(:thumb) %>
-      <b><%= friend_request.friended.name %></b> Pending
-    </li>
+    <tr>
+      <td><%= image_tag friend_request.friended.avatar.url(:thumb) %></td>
+      <td class="user-name"><%= friend_request.friended.name %></td>
+      <td>Pending</td>
+    </tr>
 	<% end %>
-</ul>
+</table>
 

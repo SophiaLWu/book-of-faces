@@ -1,3 +1,6 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#logo {
+  color: var(--dark-green);
+  font-weight: bold;
+  line-height: var(--header-height);
+  margin: 10px;
+}

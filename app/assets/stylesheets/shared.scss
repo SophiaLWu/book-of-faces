@@ -21,6 +21,10 @@
   --light-border-color: #d0dbe2;
 }
 
+:root {
+  --dark-green: #077a70;
+}
+
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -62,9 +66,13 @@ nav {
   @include box_sizing;
 }
 
-  p {
-    padding: 2px 0;
-  }
+p {
+  padding: 2px 0;
+}
+
+.field {
+  padding: 5px 0;
+}
 
 
 /* FONT, COLOR */
@@ -84,12 +92,12 @@ h1 {
 
 h2 {
   font-size: 35px;
-  padding: 10px 0;
+  padding-top: 20px;
 }
 
 h3 {
   font-size: 25px;
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
 h4 {
@@ -102,15 +110,17 @@ h5 {
   padding: 5px 0;
 }
 
+
+/* LINKS */
+
 a, a:link, a:visited {
-  color: black;
+  color: var(--dark-green);
   text-decoration: none;
 }
 
 a:hover, a:active {
   font-weight: bold;
 }
-
 
 /* TABLES */
 
@@ -126,7 +136,7 @@ table {
 /* FORMS */
 
 .btn {
-  background: #077a70;
+  background: var(--dark-green);
   border: none;
   border-radius: 5px;
   color: white;
@@ -149,4 +159,8 @@ table {
   padding: 5px;
   height: 50px;
   width: 400px;
+}
+
+.actions {
+  padding-bottom: 20px;
 }

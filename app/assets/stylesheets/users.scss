@@ -6,5 +6,16 @@
 .profile-posts {
   float: left;
   margin-left: 20px;
-  width: 60%
+  width: 60%;
+}
+
+.user-name {
+  color: var(--dark-green);
+  font-weight: bold
+}
+
+.users {
+  .other-link {
+    color: black;
+  }
 }

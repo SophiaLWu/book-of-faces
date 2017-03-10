@@ -4,14 +4,15 @@
 
 <div class="pagination"><%= will_paginate @users %></div>
 
-<table>
+<table class="users">
   <% @users.each do |user| %>
     <tr>
       <td><%= image_tag user.avatar.url(:thumb) %></td>
-      <td class="name"><%= user.name %></td>
+      <td class="user-name"><%= user.name %></td>
       <td>
         <%= link_to "Send friend request", 
-            friendships_path(friended_id: user.id), method: :post %>
+            friendships_path(friended_id: user.id), method: :post,
+            class: "other-link" %>
       </td>
     </tr>
   <% end %>
