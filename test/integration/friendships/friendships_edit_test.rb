@@ -11,21 +11,21 @@ class FriendshipsEditTest < ActionDispatch::IntegrationTest
   test "successful acceptance of friend request" do
     get friend_requests_path
     assert_template "users/friend_requests"
-    assert_select "li.pending_friend_request", text: "Lucy van Pelt"
+    assert_select "td.user-name", text: "Lucy van Pelt"
     assert_difference '@user.friends.count' do
       patch friendship_path(@friendship), params: { accepted: true }
     end
-    assert_select "li.pending_friend_request", text: "Lucy van Pelt", count: 0
+    assert_select "td.user-name", text: "Lucy van Pelt", count: 0
   end
 
   test "successful declining of friend request" do
     get friend_requests_path
     assert_template "users/friend_requests"
-    assert_select "li.pending_friend_request", text: "Lucy van Pelt"
+    assert_select "td.user-name", text: "Lucy van Pelt"
     assert_no_difference '@user.friends.count' do
       patch friendship_path(@friendship), params: {}
     end
-    assert_select "li.pending_friend_request", text: "Lucy van Pelt", count: 0
+    assert_select "td.user-name", text: "Lucy van Pelt", count: 0
   end
 
 end
