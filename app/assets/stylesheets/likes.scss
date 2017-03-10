@@ -1,3 +1,14 @@
-// Place all the styles related to the Likes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.likes {
+  li {
+    margin: 15px;
+  }
+
+  .like-unlike-container {
+    padding: 10px 0;
+  }
+
+  .like-unlike:link, .link-unlike:visited {
+    color: #4088bc;
+  }
+
+}

@@ -1,11 +1,24 @@
 /* VARIABLES, MIXINS, ETC. */
 
 * {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
+
+*, *:active, *:hover {
+  outline: none;
+}
+
 :root {
   --header-height: 40px;
+}
+
+:root {
+  --tab-offset: 10px 0 10px 15px;
+}
+
+:root {
+  --light-border-color: #d0dbe2;
 }
 
 @mixin box_sizing {
@@ -18,7 +31,7 @@
 /* HEADER */
 
 nav {
-  background: tan;
+  background: #8AC794;
   height: var(--header-height);
   position: fixed;
   top: 0;
@@ -30,6 +43,7 @@ nav {
     margin: 0 10px;
 
     li {
+      color: #FFF;
       display: block;
       float: left;
       line-height: var(--header-height);
@@ -42,16 +56,22 @@ nav {
 
 /* CONTENT LAYOUT */
 
-
 #content-container {
   margin: 10px;
   padding-top: var(--header-height);
   @include box_sizing;
 }
 
+  p {
+    padding: 2px 0;
+  }
+
 
 /* FONT, COLOR */
+
 body {
+  background: #EFEFEF;
+  color: black;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 16px;
 }
@@ -63,21 +83,37 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
-  padding: 10px 0px;
+  font-size: 35px;
+  padding: 10px 0;
 }
 
 h3 {
-  font-size: 20px;
-  padding: 5px 0px;
+  font-size: 25px;
+  padding: 5px 0;
 }
 
-a {
+h4 {
+  font-size: 20px;
+  padding: 5px 0
+}
+
+h5 {
+  font-size: 16px;
+  padding: 5px 0;
+}
+
+a, a:link, a:visited {
+  color: black;
   text-decoration: none;
+}
+
+a:hover, a:active {
+  font-weight: bold;
 }
 
 
 /* TABLES */
+
 table {
   border-collapse: separate;
 
@@ -85,4 +121,32 @@ table {
     padding: 5px 10px;
     vertical-align: middle;
   }
+}
+
+/* FORMS */
+
+.btn {
+  background: #077a70;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 13px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:hover, .btn:active {
+  background: #06665e;
+}
+
+.text-box {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  padding: 5px;
+  height: 50px;
+  width: 400px;
 }

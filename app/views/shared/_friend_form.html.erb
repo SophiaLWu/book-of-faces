@@ -3,7 +3,7 @@
   <b><%= friend_request.friender.name %></b>
 
   <%= form_for friend_request do |f| %>
-    <%= f.submit "Accept", :name => 'accepted' %>
-    <%= f.submit "Decline" %>
+    <%= f.submit "Accept", :name => 'accepted', class: "btn" %>
+    <%= f.submit "Decline", class: "btn" %>
   <% end %>
 </li>

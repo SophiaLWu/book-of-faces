@@ -1,6 +1,10 @@
-<% if post.liked_by?(current_user) %>
-	<%= link_to "Unlike", post_like_path(post_id: post.id,
-	id: post.find_user_like(current_user)), method: :delete %>
-<% else %>
-	<%= link_to "Like", post_likes_path(post_id: post.id), method: :post %>
-<% end %>
+<div class="like-unlike-container">
+  <% if post.liked_by?(current_user) %>
+  	<%= link_to "Unlike", post_like_path(post_id: post.id,
+  	id: post.find_user_like(current_user)), method: :delete,
+    class: "like-unlike" %>
+  <% else %>
+  	<%= link_to "Like", post_likes_path(post_id: post.id), method: :post,
+    class: "like-unlike" %>
+  <% end %>
+</div>

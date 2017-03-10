@@ -1,55 +1,68 @@
-<div>
-  <h3>
-    <%= image_tag post.user.avatar.url(:thumb) %>
-    <%= link_to "#{post.user.name}", post.user %>
-  </h3>
-  
-  <p>Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
-  <h4><%= post.content %></h4>
-  <p><%= image_tag post.picture.url if post.picture? %></p>
-  <div>
-    <% if post.belongs_to?(current_user) %>
-      <%= link_to "edit", edit_post_path(post) %>
-      <%= link_to "delete", post, method: :delete, 
-                                  data: { confirm: "Are you sure?" } %>
-    <% end %>
-  </div>
-</div>
+<div class="post">
+  <section class="content">
+    <%= image_tag post.user.avatar.url(:thumb), class: "avatar-thumb" %>
+    <h4 class="user-name"><%= link_to "#{post.user.name}", post.user %></h4>
+    
+    <p class="date-post">
+      Posted <%= time_ago_in_words(post.created_at) %> ago.
+    </p>
 
-<%= render "shared/like_form", post: post %>
-
-<p>
-  Likes: <%= post.likes.count %>
-  <ul>
-  <% post.likes.each do |like| %>
-    <li><%= link_to "#{like.user.name}", like.user %></li>
-  <% end %>
-  </ul>
-</p>
-
-<p>
-  Comments:
-  <ul>
-    <% post.comments.each do |comment| %>
-      <li>
-        <p><%= comment.content %></p>
-        <p>
-          Author: 
-          <%= image_tag comment.user.avatar.url(:thumb) %>
-          <%= link_to "#{comment.user.name}", comment.user %>
-        </p>
-        <div>
-          <% if comment.belongs_to?(current_user) %>
-            <%= link_to "edit", edit_post_comment_path(post_id: post.id,
-                                                       id: comment.id) %>
-            <%= link_to "delete", post_comment_path(post_id: post.id,
-                                  id: comment.id), method: :delete, 
-                                        data: { confirm: "Are you sure?" } %>
-          <% end %>
+    <h3><%= post.content %></h3>
+    <%= image_tag post.picture.url, class: "post-image" if post.picture? %>
+      <% if post.belongs_to?(current_user) %>
+        <div class="edit-delete-container">
+          <%= link_to "edit", edit_post_path(post), class: "edit-delete" %>
+          <%= link_to "delete", post, method: :delete, 
+                                      data: { confirm: "Are you sure?" },
+                                      class: "edit-delete" %>
         </div>
-      </li>
-    <% end %>
-  </ul>
-</p>
+      <% end %>
 
-<%= render "shared/comment_form", post: post %>
+  </section>
+
+  <section class="likes">
+    <%= render "shared/like_form", post: post %>
+
+    <p>
+      Likes: <%= post.likes.count %>
+      <ul>
+      <% post.likes.each do |like| %>
+        <li><%= link_to "#{like.user.name}", like.user %></li>
+      <% end %>
+      </ul>
+    </p>
+  </section>
+
+  <section class="comments">
+    <p>
+      Comments:
+      <ul>
+        <% post.comments.each do |comment| %>
+          <li>
+            <h4><%= comment.content %></h4>
+            <%= image_tag comment.user.avatar.url(:thumb), 
+                class: "avatar-comment-thumb" %>
+            <h5><%= link_to "#{comment.user.name}", comment.user %></h5>
+            </h5>
+            <div>
+              <% if comment.belongs_to?(current_user) %>
+                <div class="edit-delete-container">
+                  <%= link_to "edit", 
+                      edit_post_comment_path(post_id: post.id, id: comment.id),
+                      class: "edit-delete" %>
+                  <%= link_to "delete", 
+                      post_comment_path(post_id: post.id, id: comment.id), 
+                      method: :delete, data: { confirm: "Are you sure?" },
+                      class: "edit-delete" %>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </p>
+
+    <%= render "shared/comment_form", post: post %>
+  </section>
+
+</div>

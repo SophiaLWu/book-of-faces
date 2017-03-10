@@ -1,6 +1,6 @@
 <% provide(:title, "#{@user.name}'s profile") %>
 
-<div class="profile-info">
+<section class="profile-info">
   <h1><%= @user.name %></h1>
   <h3><%= @user.email %></h3>
   <%= image_tag @user.avatar.url(:medium) %>
@@ -10,9 +10,9 @@
                   data: { confirm: "Are you sure?" }, 
                   method: :delete %></td>
   <% end %>
-</div>
+</section>
 
-<div class="profile-posts">
+<section class="profile-posts">
   <% if current_user == @user %>
     <h2>Write a new post</h2>
     <%= render "shared/post_form" %>
@@ -27,4 +27,4 @@
   <% end %>
 
   <div class="pagination"><%= will_paginate @user_posts %></div>
-</div>
+</section>
