@@ -1,10 +1,11 @@
 .profile-info {
   float: left;
-  width: 35%
+  width: 35%;
 }
 
 .profile-posts {
   float: left;
+  margin-bottom: var(--footer-margin);
   margin-left: 20px;
   width: 60%;
 }

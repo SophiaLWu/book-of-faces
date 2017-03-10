@@ -1,5 +1,10 @@
 /* VARIABLES, MIXINS, ETC. */
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +28,10 @@
 
 :root {
   --dark-green: #077a70;
+}
+
+:root {
+  --footer-margin: 40px;
 }
 
 @mixin box_sizing {
@@ -57,11 +66,23 @@ nav {
   }
 }
 
+/* FOOTER */
+
+#footer {
+  bottom: 0;
+  font-size: 10px;
+  left: 0;
+  right: 0;
+  /*height: 10px;*/
+  position: absolute;
+  text-align: center;
+}
 
 /* CONTENT LAYOUT */
 
 #content-container {
   margin: 10px;
+  margin-bottom: var(--footer-margin);
   padding-top: var(--header-height);
   @include box_sizing;
 }
