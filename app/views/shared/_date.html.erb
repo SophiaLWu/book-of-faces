@@ -1,0 +1,5 @@
+<% if (Time.now - obj.created_at) < 86400 %>
+  <%= time_ago_in_words(obj.created_at) %>
+<% else %>
+  <%= obj.created_at.strftime("%B %d, %Y at %l:%M:%S %P %Z") %>
+<% end %>

@@ -4,7 +4,7 @@
     <h4 class="user-name"><%= link_to "#{post.user.name}", post.user %></h4>
     
     <p class="date-post">
-      Posted <%= time_ago_in_words(post.created_at) %> ago.
+      <%= render "shared/date", obj: post %>
     </p>
 
     <h3><%= post.content %></h3>
@@ -43,7 +43,9 @@
             <%= image_tag comment.user.avatar.url(:thumb), 
                 class: "avatar-comment-thumb" %>
             <h5><%= link_to "#{comment.user.name}", comment.user %></h5>
-            </h5>
+            <p class="date-post">
+              <%= render "shared/date", obj: comment %>
+            </p>
             <div>
               <% if comment.belongs_to?(current_user) %>
                 <div class="edit-delete-container">
