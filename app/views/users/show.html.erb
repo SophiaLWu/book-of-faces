@@ -4,12 +4,14 @@
   <h1><%= @user.name %></h1>
   <h3><%= @user.email %></h3>
   <%= image_tag @user.avatar.url(:medium) %>
-  <% if current_user != @user %>
-    <td><%= link_to "Unfriend", 
-                  friendship_path(current_user.find_friendship(@user)),
-                  data: { confirm: "Are you sure?" }, 
-                  method: :delete %></td>
-  <% end %>
+  <p>
+    <% if current_user != @user %>
+      <td><%= link_to "Unfriend", 
+                    friendship_path(current_user.find_friendship(@user)),
+                    data: { confirm: "Are you sure?" }, 
+                    method: :delete %></td>
+    <% end %>
+  </p>
 </section>
 
 <section class="profile-posts">

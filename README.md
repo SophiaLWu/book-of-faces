@@ -16,7 +16,6 @@ Email: charlie@peanuts.com
 Password: peanuts
 
 ## TODO
-- Organize comments by date of post
 - Fix error messages
 - Notification tab functionality
 - Add pagination for friend requests
