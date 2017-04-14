@@ -1,13 +1,24 @@
+.profile-wrapper {
+  text-align: center;
+}
+
 .profile-info {
-  float: left;
-  width: 35%;
+  width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
 }
 
 .profile-posts {
-  float: left;
-  margin-bottom: var(--footer-margin);
-  margin-left: 20px;
-  width: 60%;
+  width: 550px;
+  display: inline-block;
+  text-align: left;
+  margin-left: 50px;
+
+  .profile-posts-heading {
+    margin-bottom: 15px;
+    text-align: center;
+  }
 }
 
 .user-name {
@@ -19,4 +30,19 @@
   .other-link {
     color: black;
   }
+}
+
+.user-profile-avatar {
+  border: 15px solid var(--dark-green);
+  box-shadow: 2px 2px 2px gray;
+}
+
+.friend-requests-wrapper,
+.friends-wrapper,
+.users-wrapper {
+  text-align: center;
+}
+
+.unfriend-link {
+  margin-top: 10px;
 }

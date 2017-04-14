@@ -1,15 +1,18 @@
 <% provide(:title, "Home") %>
 
-<h1>Home</h1>
+<section class="homepage">
 
-<%= render "shared/post_form" %>
+  <div class="homepage-posts">
+    <%= render "shared/post_form" %>
 
-<h2>Posts</h2>
+    <h2>Posts</h2>
 
-<div class="pagination"><%= will_paginate @posts %></div>
+    <div class="pagination"><%= will_paginate @posts %></div>
 
-<% @posts.each do |post| %>
-	<%= render "shared/post", post: post %>
-<% end %>
+    <% @posts.each do |post| %>
+    	<%= render "shared/post", post: post %>
+    <% end %>
 
-<div class="pagination"><%= will_paginate @posts %></div>
+    <div class="pagination"><%= will_paginate @posts %></div>
+  </div>
+</section>

@@ -1,13 +1,16 @@
-<div class="post-form">
-  <h2>Write a new post</h2>
-
+<div class="post-form box">
   <%= form_for(@post) do |f| %>
     <%= render "shared/error_messages", object: f.object %>
-    <%= f.text_area :content, class: "text-box" %>
+    <div class="post-form-avatar">
+    <%= image_tag current_user.avatar.url(:thumb), class: "avatar-thumb" %>
+    </div>
+    <%= f.text_area :content, placeholder: "What are you thinking today?", 
+                              class: "text-box post-form-text-box" %>
 
-    <%= f.submit "Post", class: "btn" %>
+    <%= f.submit "Post", class: "btn post-btn" %>
 
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png',
+                               class: "post-file" %>
   <% end %>
 
   <script type="text/javascript">

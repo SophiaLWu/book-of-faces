@@ -1,6 +1,25 @@
-#logo {
-  color: var(--dark-green);
-  font-weight: bold;
-  line-height: var(--header-height);
-  margin: 10px;
+.static-home-wrapper {
+  width: 700px;
+  margin-top: 80px;
+  padding: 25px;
+  text-align: center;
+}
+
+.signup-btn {
+  margin-top: 50px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px gray;
+  background: var(--dark-green);
+  color: white;
+  font-family: 'Cabin', sans-serif;
+  font-size: 45px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.signup-btn:hover {
+  background: #344c3d;
+  cursor: pointer;
 }

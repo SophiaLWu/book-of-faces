@@ -1,21 +1,23 @@
 <% provide(:title, "Friends") %>
 
-<h1>Friends</h1>
+<div class="friends-wrapper box">
+  <h1>Friends</h1>
 
-<div class="pagination"><%= will_paginate @friends %></div>
+  <div class="pagination"><%= will_paginate @friends %></div>
 
-<table class="users">
-  <% @friends.each do |friend| %>
-    <tr>
-      <td><%= image_tag friend.avatar.url(:thumb) %></td>
-      <td><%= link_to "#{friend.name}", friend %></td>
-      <td><%= link_to "Unfriend", 
-              friendship_path(current_user.find_friendship(friend)),
-              data: { confirm: "Are you sure?" }, 
-              method: :delete,
-              class: "other-link" %></td>
-    </tr>
-  <% end %>
-</table>
+  <table class="users">
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= image_tag friend.avatar.url(:thumb) %></td>
+        <td><%= link_to "#{friend.name}", friend %></td>
+        <td><%= link_to "Unfriend", 
+                friendship_path(current_user.find_friendship(friend)),
+                data: { confirm: "Are you sure?" }, 
+                method: :delete,
+                class: "other-link" %></td>
+      </tr>
+    <% end %>
+  </table>
 
-<div class="pagination"><%= will_paginate @friends %></div>
+  <div class="pagination"><%= will_paginate @friends %></div>
+</div>

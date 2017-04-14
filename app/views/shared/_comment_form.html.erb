@@ -1,7 +1,8 @@
 <div class="comment-form">
   <%= form_for(:comment, url: post_comments_path(post_id: post.id), 
                :method => "post") do |f| %>
-  	<%= f.text_area :content, class: "text-box" %>
+  	<%= f.text_area :content, placeholder: "Write a comment...", 
+                              class: "text-box" %>
   	<%= f.hidden_field :post_id, :value => post.id %>
 
   	<%= f.submit "Comment", class: "btn" %>

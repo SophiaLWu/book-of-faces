@@ -1,21 +1,23 @@
 <% provide(:title, "All users") %>
 
-<h1>All Users</h1>
+<div class="users-wrapper box">
+  <h1>All Users</h1>
 
-<div class="pagination"><%= will_paginate @users %></div>
+  <div class="pagination"><%= will_paginate @users %></div>
 
-<table class="users">
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= image_tag user.avatar.url(:thumb) %></td>
-      <td class="user-name"><%= user.name %></td>
-      <td>
-        <%= link_to "Send friend request", 
-            friendships_path(friended_id: user.id), method: :post,
-            class: "other-link" %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+  <table class="users">
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.avatar.url(:thumb) %></td>
+        <td class="user-name"><%= user.name %></td>
+        <td>
+          <%= link_to "Send friend request", 
+              friendships_path(friended_id: user.id), method: :post,
+              class: "other-link" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
-<div class="pagination"><%= will_paginate @users %></div>
+  <div class="pagination"><%= will_paginate @users %></div>
+</div>

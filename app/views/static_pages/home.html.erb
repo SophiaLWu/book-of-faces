@@ -1,6 +1,9 @@
 <% provide(:title, "Home") %>
 
-<h1>Welcome to Book of Faces!</h1>
-<p>Start connecting with friends now.</p>
-<h2><%= link_to "Sign up now", new_user_registration_path %></h2>
+<div class="static-home-wrapper box">
+  <h1>Welcome to Book of Faces!</h1>
+  <h2>Start connecting with friends now.</h2>
+  <%= button_to "Sign up now", new_user_registration_path, method: :get,
+                               class: "signup-btn" %>
+</div>
 
