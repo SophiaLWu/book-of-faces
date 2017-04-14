@@ -31,3 +31,9 @@
     <div class="pagination"><%= will_paginate @user_posts %></div>
   </section>
 </div>
+
+<script type="text/javascript">
+  <% if current_page?("/users/#{current_user.id}") %>
+    $(".profile-nav").addClass("current-page");
+  <% end %>
+</script>

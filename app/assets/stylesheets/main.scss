@@ -108,9 +108,9 @@ html {
       line-height: calc(var(--header-height) - 12px);
     }
 
-    li div:hover {
+/*    li div:hover {
       border-bottom: 2px solid #fff;
-    }
+    }*/
 
     a, a:link, a:visited {
       color: #fff;
@@ -148,6 +148,22 @@ p {
   padding: 5px 0;
 }
 
+.box {
+  margin: 0 auto;
+  width: 550px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px gray;
+  background: var(--post-background-color);
+}
+
+.date-post {
+  margin-top: 2px;
+}
+
+.pagination {
+  margin: 10px 0;
+}
 
 /* FONT, COLOR */
 
@@ -185,6 +201,10 @@ h5 {
 small {
   font-size: 10px;
   font-style: italic;
+}
+
+.current-page {
+  border-bottom: 2px solid #fff;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -277,17 +297,6 @@ table {
 }
 
 
-/* BOXES */
-.box {
-  margin: 0 auto;
-  width: 550px;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px gray;
-  background: var(--post-background-color);
-}
-
-
 /* HOMEPAGE */
 
 .homepage {
@@ -304,7 +313,3 @@ table {
 }
 
 
-/* DATES */
-.date-post {
-  margin-top: 2px;
-}

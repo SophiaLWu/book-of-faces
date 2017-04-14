@@ -18,3 +18,8 @@
   </table>
 </div>
 
+<script type="text/javascript">
+  <% if current_page?(controller: 'users', action: 'friend_requests') %>
+    $(".friend-requests-nav").addClass("current-page");
+  <% end %>
+</script>

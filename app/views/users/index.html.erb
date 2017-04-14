@@ -11,9 +11,9 @@
         <td><%= image_tag user.avatar.url(:thumb) %></td>
         <td class="user-name"><%= user.name %></td>
         <td>
-          <%= link_to "Send friend request", 
+          <%= button_to "Send friend request", 
               friendships_path(friended_id: user.id), method: :post,
-              class: "other-link" %>
+              class: "btn" %>
         </td>
       </tr>
     <% end %>
@@ -21,3 +21,9 @@
 
   <div class="pagination"><%= will_paginate @users %></div>
 </div>
+
+<script type="text/javascript">
+  <% if current_page?(controller: 'users', action: 'index') %>
+    $(".users-nav").addClass("current-page");
+  <% end %>
+</script>

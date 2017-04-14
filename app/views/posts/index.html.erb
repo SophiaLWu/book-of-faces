@@ -16,3 +16,9 @@
     <div class="pagination"><%= will_paginate @posts %></div>
   </div>
 </section>
+
+<script type="text/javascript">
+  <% if current_page?(controller: 'posts', action: 'index') %>
+    $(".home-nav").addClass("current-page");
+  <% end %>
+</script>

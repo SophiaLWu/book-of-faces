@@ -38,39 +38,36 @@
   </section>
 
   <section class="comments">
-    <p>
-      Comments:
-      <ul>
-        <% post.comments.each do |comment| %>
-          <li>
-            <div class="comment-content"><h4><%= comment.content %></h4></div>
-            <div class="comment-info-wrapper">
-              <%= image_tag comment.user.avatar.url(:thumb), 
-                  class: "avatar-comment-thumb" %>
-              <div>
-                <h5><%= link_to "#{comment.user.name}", comment.user %></h5>
-                <div class="date-post">
-                  <%= render "shared/date", obj: comment %>
-                </div>
+    <ul>
+      <% post.comments.each do |comment| %>
+        <li>
+          <div class="comment-content"><h4><%= comment.content %></h4></div>
+          <div class="comment-info-wrapper">
+            <%= image_tag comment.user.avatar.url(:thumb), 
+                class: "avatar-comment-thumb" %>
+            <div>
+              <h5><%= link_to "#{comment.user.name}", comment.user %></h5>
+              <div class="date-post">
+                <%= render "shared/date", obj: comment %>
               </div>
             </div>
-            <div>
-              <% if comment.belongs_to?(current_user) %>
-                <div class="edit-delete-container">
-                  <%= link_to "edit", 
-                      edit_post_comment_path(post_id: post.id, id: comment.id),
-                      class: "edit-delete" %>
-                  <%= link_to "delete", 
-                      post_comment_path(post_id: post.id, id: comment.id), 
-                      method: :delete, data: { confirm: "Are you sure?" },
-                      class: "edit-delete" %>
-                </div>
-              <% end %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </p>
+          </div>
+          <div>
+            <% if comment.belongs_to?(current_user) %>
+              <div class="edit-delete-container">
+                <%= link_to "edit", 
+                    edit_post_comment_path(post_id: post.id, id: comment.id),
+                    class: "edit-delete" %>
+                <%= link_to "delete", 
+                    post_comment_path(post_id: post.id, id: comment.id), 
+                    method: :delete, data: { confirm: "Are you sure?" },
+                    class: "edit-delete" %>
+              </div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
 
     <%= render "shared/comment_form", post: post %>
   </section>

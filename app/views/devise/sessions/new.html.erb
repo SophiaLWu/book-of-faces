@@ -29,3 +29,8 @@
   <%= render "devise/shared/links" %>
 </div>
 
+<script type="text/javascript">
+  <% if current_page?(controller: 'sessions', action: 'new') %>
+    $(".sign-in-nav").addClass("current-page");
+  <% end %>
+</script>

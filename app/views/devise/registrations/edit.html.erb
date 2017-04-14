@@ -59,3 +59,9 @@
   </p>
   
 </div>
+
+<script type="text/javascript">
+  <% if current_page?(controller: 'registrations', action: 'edit') %>
+    $(".settings-nav").addClass("current-page");
+  <% end %>
+</script>

@@ -7,3 +7,9 @@
                                class: "signup-btn" %>
 </div>
 
+
+<script type="text/javascript">
+  <% if current_page?(controller: 'static_pages', action: 'home') %>
+    $(".home-nav").addClass("current-page");
+  <% end %>
+</script>
