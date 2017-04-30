@@ -15,7 +15,8 @@
     <%= image_tag post.picture.url, class: "post-image" if post.picture? %>
       <% if post.belongs_to?(current_user) %>
         <div class="edit-delete-container">
-          <%= link_to "edit", edit_post_path(post), class: "edit-delete" %>
+          <a class="edit-delete edit-post" 
+             data-post-id="<%= post.id %>">edit</a>
           <%= link_to "delete", post, method: :delete, 
                                       data: { confirm: "Are you sure?" },
                                       class: "edit-delete" %>
@@ -55,9 +56,9 @@
           <div>
             <% if comment.belongs_to?(current_user) %>
               <div class="edit-delete-container">
-                <%= link_to "edit", 
-                    edit_post_comment_path(post_id: post.id, id: comment.id),
-                    class: "edit-delete" %>
+                <a class="edit-delete edit-comment" 
+                   data-post-id="<%= post.id %>"
+                   data-comment-id="<%= comment.id %>">edit</a>
                 <%= link_to "delete", 
                     post_comment_path(post_id: post.id, id: comment.id), 
                     method: :delete, data: { confirm: "Are you sure?" },

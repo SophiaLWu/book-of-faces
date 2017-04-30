@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 		@comment = Comment.find(params[:id])
 		if @comment.update_attributes(comment_params)
 			flash[:success] = "Comment updated."
-			redirect_to root_path
+			redirect_back(fallback_location: root_path)
 		else
 			flash[:danger] = "Comment not updated."
 			render "edit"

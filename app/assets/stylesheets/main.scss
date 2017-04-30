@@ -224,6 +224,10 @@ small {
 
 /* LINKS */
 
+a {
+  cursor: pointer;
+}
+
 a, a:link, a:visited {
   color: var(--dark-green);
   text-decoration: none;

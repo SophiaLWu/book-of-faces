@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		if @post.update_attributes(post_params)
 			flash[:success] = "Post updated."
-			redirect_to root_path
+			redirect_back(fallback_location: root_path)
 		else
 			flash[:danger] = "Post not updated."
 			render "edit"
