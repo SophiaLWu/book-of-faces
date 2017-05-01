@@ -21,6 +21,5 @@ Password: peanuts
 - Add pagination for friend requests
 - User can't friend someone that already friend him/her (fix uniqueness of friendship model)
 - Use polymorphic association to make post allow either text OR photo
-- After editing comments/posts, redirect back to previous page rather than root
 - Unit tests to make sure associations are set up and deleting users deletes
  everything associated with that user
