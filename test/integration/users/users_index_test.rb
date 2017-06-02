@@ -12,7 +12,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_template "users/index"
     assert_select "div.pagination"
     @user.not_friended_users.paginate(page: 1).each do |user|
-      assert_select "td.name", user.name
+      assert_select "td.user-name", user.name
     end
   end
 end

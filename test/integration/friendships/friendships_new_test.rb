@@ -11,16 +11,16 @@ class FriendshipsNewTest < ActionDispatch::IntegrationTest
   test "successful friend request of a user" do
     get users_path
     assert_template "users/index"
-    assert_select "td.name", text: @second_user.name
+    assert_select "td.user-name", text: @second_user.name
     assert_difference '@user.requested_friend_requests.count' do
       post friendships_path, params: { friender_id: @user.id,
                                        friended_id: @second_user.id }
     end
-    assert_select "td.name", text: @second_user.name, count: 0
+    assert_select "td.user-name", text: @second_user.name, count: 0
     get friend_requests_path
     @user.requested_friend_requests.each do |friend_request|
-      assert_select "li.requested_friend_request", 
-                    text: "#{friend_request.friended.name} Pending"
+      assert_select "td.user-name", 
+                    text: "#{friend_request.friended.name}"
     end
   end
 

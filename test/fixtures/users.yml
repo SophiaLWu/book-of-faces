@@ -40,3 +40,9 @@ pigpen:
     encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
     confirmed_at: <%= Time.now %>
 
+violet:
+    name: Violet Gray
+    email: violetgray@peanuts.com
+    encrypted_password: <%= Devise::Encryptor.digest(User, 'peanuts') %>
+    confirmed_at: <%= Time.now %>
+
