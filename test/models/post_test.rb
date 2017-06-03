@@ -61,4 +61,21 @@ class PostTest < ActiveSupport::TestCase
     end
   end
 
+  test "can be liked" do
+    @post.save
+    assert_difference '@post.likes.count', 1 do
+      @like = @post.likes.build(user_id: @user.id)
+      @like.save
+    end
+  end
+
+  test "can be unliked" do
+    @post.save
+    @like = @post.likes.build(user_id: @user.id)
+    @like.save
+    assert_difference '@post.likes.count', -1 do
+      @like.destroy
+    end
+  end
+
 end
