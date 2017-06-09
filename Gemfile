@@ -41,6 +41,7 @@ gem 'fog',                     '1.38.0'
 gem 'aws-sdk', '~> 2.3.0'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'bcrypt-ruby'
+gem 'stream_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
