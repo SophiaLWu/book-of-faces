@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/home'
   get '/friend_requests', to: 'users#friend_requests'
-  get '/notifications', to: 'static_pages#notifications'
+  get '/notifications', to: 'feeds#notification'
   get '/friends', to: 'users#friends'
 
   devise_for :users, :controllers => 

@@ -1,0 +1,8 @@
+<div class="well well-sm">
+  <p><small class="text-muted"><%= time_ago_in_words activity['time'] %> ago</small></p>
+  <% if activity["accepted"] %>
+  	<p><%= activity['object'].name %> has accepted your friend request.</p>
+  <% else %>
+  	<p><%= activity['object'].name %> has added you as a friend.</p>
+  <% end %>
+</div>

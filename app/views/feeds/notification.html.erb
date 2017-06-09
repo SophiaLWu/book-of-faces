@@ -1,0 +1,5 @@
+<div><h1>Your notification feed</h1></div>
+
+<% @activities.each do |activity| %>
+  <%= render_activity activity %>
+<% end %>
